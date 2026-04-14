@@ -62,8 +62,10 @@ export default function AudienceSection() {
           </button>
         </div>
 
-        {/* Tab Content */}
-        {activeTab === 'vietnamese' ? <VietnameseTab /> : <LawyerTab />}
+        {/* Tab Content — key forces remount so reveal animations replay */}
+        <div key={activeTab} className="animate-fadeIn">
+          {activeTab === 'vietnamese' ? <VietnameseTab /> : <LawyerTab />}
+        </div>
       </div>
     </section>
   );
